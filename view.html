@@ -1,0 +1,18 @@
+<div class="product-image" (click)="imgFile.click();">
+        <!-- image viewer -->
+        <img class="product-image" [src]="imageSrc || imgArea | safe: 'url'" >
+
+        <!-- centerlized camera button -->
+        <div class="cameraBtn text-center">
+            <a class="btnCam" *ngIf="!imageSrc">
+                <i class="fas fa-camera"></i>
+            </a>
+            <p class="pt-3 text-white" *ngIf="!imageSrc">Take/Upload Photo</p>
+            <input hidden type="file" (change)="readURL($event);" accept="image/*" #imgFile>
+        </div>
+
+        <!-- edit button to update image -->
+        <a class="editCam" *ngIf="imageSrc">
+            <i class="fas fa-pencil-alt"></i>
+        </a>
+    </div>
